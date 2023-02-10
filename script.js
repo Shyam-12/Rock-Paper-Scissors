@@ -4,6 +4,9 @@ const choices = {
     2: "scissors"
 };
 
+userScore = 0;
+compScore = 0;
+
 function getRandomValue(){
     random = Math.floor(3 * Math.random());
     return random;
@@ -20,26 +23,57 @@ function getComputerChoice(value){
     }
 }
 
-compChoice = getComputerChoice(getRandomValue());
-// console.log(compChoice);
+// console.log(compChoice.toLowerCase());
 
-userChoice = "rock";
+function playRound(userChoice, compChoice){
+    if (userChoice == "rock" && compChoice == "rock"){
+        return 0;
+    } else if (userChoice == "rock" && compChoice == "paper"){
+        return 1;
+    } else if (userChoice == "rock" && compChoice == "scissors"){
+        return 2;
+    } else if (userChoice == "paper" && compChoice == "rock"){
+        return 2;
+    } else if (userChoice == "paper" && compChoice == "paper"){
+        return 0;
+    } else if (userChoice == "paper" && compChoice == "scissors"){
+        return 1;
+    } else if (userChoice == "scissors" && compChoice == "rock"){
+        return 1;
+    } else if (userChoice == "scissors" && compChoice == "paper"){
+        return 2;
+    } else {
+        return 0;
+    }
+}
 
-if (userChoice == "rock" && getComputerChoice(getRandomValue()) == "rock"){
-    console.log("Draw");
-} else if (userChoice == "rock" && getComputerChoice(getRandomValue()) == "paper"){
-    console.log("You lose! Paper beats rock");
-} else if (userChoice == "rock" && getComputerChoice(getRandomValue()) == "scissors"){
-    console.log("You win! Rock beats Scissors");
-} else if (userChoice == "paper" && getComputerChoice(getRandomValue()) == "rock"){
-    console.log("You win!");
-} else if (userChoice == "paper" && getComputerChoice(getRandomValue()) == "paper"){
-    console.log("Draw");
-} else if (userChoice == "paper" && getComputerChoice(getRandomValue()) == "scissors"){
-    console.log("You lose! Scissors beats paper");
-} else if (userChoice == "scissors" && getComputerChoice(getRandomValue()) == "rock"){
-    console.log("You lose! Rock beats scissors");
-} else if (userChoice == "scissors" && getComputerChoice(getRandomValue()) == "paper"){
-    console.log("You win");
-} else (userChoice == "scissors" && getComputerChoice(getRandomValue()) == "scissors")
-    console.log("Draw");
+// console.log(playRound(userChoice, compChoice));
+
+function game(){
+    userChoice = prompt().toLowerCase();
+    compChoice = getComputerChoice(getRandomValue());
+
+        const res = playRound(userChoice, compChoice);
+        
+        if (res == 0){
+            console.log("It was a draw");
+        } else if (res == 1){
+            console.log("You lose");
+            compScore++;
+        } else {
+            console.log("You win");
+            userScore++;
+        }
+}
+
+for(i = 0; i < 5; i++){
+    game();
+}
+
+if (userScore > compScore){
+    console.log("You Won the Game");
+} else if (userScore < compScore){
+    console.log("You lose the Game");
+} else {
+    console.log("Ah! It was a draw");
+}
