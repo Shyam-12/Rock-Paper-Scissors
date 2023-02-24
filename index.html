@@ -4,10 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
     <title>Rock-Paper-Scissors</title>
 </head>
 <body>
-    <h1>Rock-Paper-Scissors</h1>
-    <script src="./script.js"></script>
+    <!-- <h1>Rock-Paper-Scissor</h1> -->
+    <!-- <div id="start-screen">
+        <p id="vsComp">vs. Computer</p>
+        <p id="vsPlayer">Multiplayer</p>
+    </div> -->
+
+    <div id="game-screen">
+        <h1>Rock-Paper-Scissors</h1>
+        <div class="game-container">
+            <!-- user chance -->
+            <div class="user-chance">
+                <button data-selection="rock" id="rock" value="rock"><img width="200px" height="auto" src="./Images/fist.png" alt="rock"></button>
+                <button data-selection="paper" id="paper" value="paper"><img width="200px" height="auto"  src="./Images/paper.png" alt="paper"></button>
+                <button data-selection="scissors" id="Scissor" value="scissor"><img  width="200px" height="auto" src="./Images/scissors.png" alt="scissors"></button>
+            </div>
+        </div>
+        <hr>
+        <div class="results">
+            <div>You : <span class="your-score">0</span></div>
+            <div>Computer : <span class="comp-score">0</span></div>
+            <div class="result-selection winner"><img width="100px" height="auto" src="./Images/fist.png" alt="rock"></div>
+            <div class="result-selection"><img width="100px" height="auto" src="./Images/scissors.png" alt="scissor"></div>
+        </div>
+        <div class="curr-game"><span class="curr-game-res">You win!</span></div>
+    </div>
+    <script src="./script'.js"></script>
 </body>
 </html>
